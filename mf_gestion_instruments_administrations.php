@@ -49,7 +49,7 @@ function mf_gestion_instruments_upgrade($nom_meta_base_version, $version_cible) 
 	# );
 	# ...
 
-	$maj['create'] = array(array('maj_tables', array('spip_instruments')));
+	$maj['create'] = array(array('maj_tables', array('spip_instruments','spip_lifecycles')));
 	$maj['1.0.1'] = array(array('maj_tables', array('spip_lifecycles')));
 
 	include_spip('base/upgrade');
