@@ -1,0 +1,20 @@
+<BOUCLE_test_multiple(CONDITION){si #ENV{multiple}|=={on}|oui}>
+	[(#SET{valeur,[(#ENV*{valeur}|is_array|?{[(#ENV*{valeur})],[(#ENV*{valeur}|explode{','})]})]})]
+	<B_instruments_selectionnes>
+	<ul>
+	<BOUCLE_instruments_selectionnes(INSTRUMENTS){id_instrument IN #GET*{valeur}}
+		{par num titre, titre}{statut?}{tout}>
+		<li class="choix">#TITRE (#ID_INSTRUMENT)</li>
+	</BOUCLE_instruments_selectionnes>
+	</ul>
+	</B_instruments_selectionnes>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_instruments_selectionnes>
+</BOUCLE_test_multiple>
+	<BOUCLE_instrument_selectionne(INSTRUMENTS){id_instrument=#ENV{valeur}}
+		{par num titre, titre}{statut?}{tout}>
+	  	<p>#TITRE (#ID_INSTRUMENT)</p>
+	</BOUCLE_instrument_selectionne>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_instrument_selectionne>
+<//B_test_multiple>
