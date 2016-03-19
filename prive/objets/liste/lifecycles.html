@@ -1,0 +1,39 @@
+[(#SET{defaut_tri,#ARRAY{
+	statut,1, 
+	date,-1, 
+	id_lifecycle,1,
+	points,-1
+}})]<B_liste_lifecycles>
+#ANCRE_PAGINATION
+<div class="liste-objets lifecycles">
+<table class="spip liste">
+	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{lifecycle:info_1_lifecycle,lifecycle:info_nb_lifecycles}})</strong></caption>]
+	<thead>
+		<tr class="first_row">
+			<th class="picto" scope="col"></th>
+			<th class="statut" scope="col">[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th> 
+			<th class="statut" scope="col">[(#TRI{statut,<:lifecycle:champ_statut_label:>,ajax})]</th>
+			<th class="date" scope="col">[(#TRI{date,<:date:>,ajax})]</th> 
+			<th class="id" scope="col">[(#TRI{id_lifecycle,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_lifecycles(LIFECYCLES){id_instrument?}{id_contact?}{id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,num statut},#GET{defaut_tri}}{par statut}{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class="picto">[(#CHEMIN_IMAGE{lifecycle-16.png}|balise_img)]</td>
+			<td class="statut">[(#STATUT|puce_statut{lifecycle,#ID_LIFECYCLE})]</td> 
+			<td class="statut principale">[(#LOGO_LIFECYCLE|image_reduire{20,26})]<a href="[(#ID_LIFECYCLE|generer_url_entite{lifecycle})]" title="<:info_numero_abbreviation|attribut_html:> #ID_LIFECYCLE">[(#RANG). ]#STATUT</a></td>
+			<td class="date secondaire">[(#DATE|affdate_jourcourt)]</td> 
+			<td class="id">[(#AUTORISER{modifier,lifecycle,#ID_LIFECYCLE}|?{
+				<a href="[(#URL_ECRIRE{lifecycle_edit,id_lifecycle=#ID_LIFECYCLE})]">#ID_LIFECYCLE</a>,
+				#ID_LIFECYCLE
+			})]</td>
+		</tr>
+	</BOUCLE_liste_lifecycles>
+	</tbody>
+</table>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+</div>
+</B_liste_lifecycles>[
+<div class="liste-objets lifecycles caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_lifecycles>

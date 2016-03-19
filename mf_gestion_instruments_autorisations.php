@@ -123,3 +123,93 @@ function autoriser_instrument_modifier_dist($faire, $type, $id, $qui, $opt) {
 function autoriser_instrument_supprimer_dist($faire, $type, $id, $qui, $opt) {
 	return $qui['statut'] == '0minirezo' AND !$qui['restreint'];
 }
+
+
+// -----------------
+// Objet lifecycles
+
+
+/**
+ * Autorisation de voir un élément de menu (lifecycles)
+ *
+ * @param  string $faire Action demandée
+ * @param  string $type  Type d'objet sur lequel appliquer l'action
+ * @param  int    $id    Identifiant de l'objet
+ * @param  array  $qui   Description de l'auteur demandant l'autorisation
+ * @param  array  $opt   Options de cette autorisation
+ * @return bool          true s'il a le droit, false sinon
+**/
+function autoriser_lifecycles_menu_dist($faire, $type, $id, $qui, $opt){
+	return true;
+} 
+
+
+/**
+ * Autorisation de voir le bouton d'accès rapide de création (lifecycle)
+ *
+ * @param  string $faire Action demandée
+ * @param  string $type  Type d'objet sur lequel appliquer l'action
+ * @param  int    $id    Identifiant de l'objet
+ * @param  array  $qui   Description de l'auteur demandant l'autorisation
+ * @param  array  $opt   Options de cette autorisation
+ * @return bool          true s'il a le droit, false sinon
+**/
+function autoriser_lifecyclecreer_menu_dist($faire, $type, $id, $qui, $opt){
+	return autoriser('creer', 'lifecycle', '', $qui, $opt);
+} 
+
+/**
+ * Autorisation de créer (lifecycle)
+ *
+ * @param  string $faire Action demandée
+ * @param  string $type  Type d'objet sur lequel appliquer l'action
+ * @param  int    $id    Identifiant de l'objet
+ * @param  array  $qui   Description de l'auteur demandant l'autorisation
+ * @param  array  $opt   Options de cette autorisation
+ * @return bool          true s'il a le droit, false sinon
+**/
+function autoriser_lifecycle_creer_dist($faire, $type, $id, $qui, $opt) {
+	return in_array($qui['statut'], array('0minirezo', '1comite')); 
+}
+
+/**
+ * Autorisation de voir (lifecycle)
+ *
+ * @param  string $faire Action demandée
+ * @param  string $type  Type d'objet sur lequel appliquer l'action
+ * @param  int    $id    Identifiant de l'objet
+ * @param  array  $qui   Description de l'auteur demandant l'autorisation
+ * @param  array  $opt   Options de cette autorisation
+ * @return bool          true s'il a le droit, false sinon
+**/
+function autoriser_lifecycle_voir_dist($faire, $type, $id, $qui, $opt) {
+	return true;
+}
+
+/**
+ * Autorisation de modifier (lifecycle)
+ *
+ * @param  string $faire Action demandée
+ * @param  string $type  Type d'objet sur lequel appliquer l'action
+ * @param  int    $id    Identifiant de l'objet
+ * @param  array  $qui   Description de l'auteur demandant l'autorisation
+ * @param  array  $opt   Options de cette autorisation
+ * @return bool          true s'il a le droit, false sinon
+**/
+function autoriser_lifecycle_modifier_dist($faire, $type, $id, $qui, $opt) {
+	return in_array($qui['statut'], array('0minirezo', '1comite'));
+}
+
+/**
+ * Autorisation de supprimer (lifecycle)
+ *
+ * @param  string $faire Action demandée
+ * @param  string $type  Type d'objet sur lequel appliquer l'action
+ * @param  int    $id    Identifiant de l'objet
+ * @param  array  $qui   Description de l'auteur demandant l'autorisation
+ * @param  array  $opt   Options de cette autorisation
+ * @return bool          true s'il a le droit, false sinon
+**/
+function autoriser_lifecycle_supprimer_dist($faire, $type, $id, $qui, $opt) {
+	return $qui['statut'] == '0minirezo' AND !$qui['restreint'];
+}

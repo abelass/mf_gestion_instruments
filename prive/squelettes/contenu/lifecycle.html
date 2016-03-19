@@ -1,0 +1,54 @@
+[(#AUTORISER{voir,lifecycle,#ID_LIFECYCLE}|sinon_interdire_acces)]
+<BOUCLE_lifecycle(LIFECYCLES){id_lifecycle}{statut==.*}{si #ENV{exec}|=={lifecycle}}>
+[(#BOITE_OUVRIR{[
+	[(#AUTORISER{modifier,lifecycle,#ID_LIFECYCLE})
+		[(#ID_LIFECYCLE|afficher_qui_edite{lifecycle}|non)
+			[(#URL_ECRIRE{lifecycle_edit,id_lifecycle=#ID_LIFECYCLE}|icone_verticale{<:lifecycle:icone_modifier_lifecycle:>,lifecycle,edit,right ajax preload})]
+		]
+		[(#ID_LIFECYCLE|afficher_qui_edite{lifecycle}|oui)
+			[(#URL_ECRIRE{lifecycle_edit,id_lifecycle=#ID_LIFECYCLE}|icone_verticale{#ID_LIFECYCLE|afficher_qui_edite{lifecycle},warning-24,'',right edition_deja ajax preload})]
+		]
+	]
+
+	<h1>[(#RANG). ](#STATUT|sinon{<:info_sans_titre:>})[(#CHEMIN_IMAGE{lifecycle-24.png}|balise_img{lifecycle,cadre-icone})]</h1>
+
+],simple fiche_objet})]
+
+<div class="ajax">
+	#FORMULAIRE_DATER{lifecycle,#ID_LIFECYCLE}
+</div>
+
+<!--affiche_milieu-->
+
+<div id="wysiwyg">
+<INCLURE{fond=prive/objets/contenu/lifecycle,id=#ID_LIFECYCLE,id_lifecycle=#ID_LIFECYCLE,virtuel=oui,ajax=wysiwyg,wysiwyg=1}>
+</div>
+
+<div class="nettoyeur"></div>
+
+[(#AUTORISER{modifier,lifecycle,#ID_LIFECYCLE})
+	[(#ID_LIFECYCLE|afficher_qui_edite{lifecycle}|non)
+		[(#URL_ECRIRE{lifecycle_edit,id_lifecycle=#ID_LIFECYCLE}|icone_verticale{<:lifecycle:icone_modifier_lifecycle:>,lifecycle,edit,right ajax preload})]
+	]
+	[(#ID_LIFECYCLE|afficher_qui_edite{lifecycle}|oui)
+		[(#URL_ECRIRE{lifecycle_edit,id_lifecycle=#ID_LIFECYCLE}|icone_verticale{#ID_LIFECYCLE|afficher_qui_edite{lifecycle},warning-24,'',right edition_deja ajax preload})]
+	]
+]
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,lifecycle,id,#ID_LIFECYCLE},data,'<div class="nettoyeur"></div>'}}
+
+#BOITE_FERMER
+
+
+#SET{enfants,''}
+[(#VAL{prive/objets/contenu/lifecycle-enfants}|trouver_fond|oui)
+	[(#SET{enfants,[(#INCLURE{fond=prive/objets/contenu/lifecycle-enfants,id_lifecycle,env})]})]
+]
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,lifecycle,id_lifecycle,#ID_LIFECYCLE,objet,lifecycle,id_objet,#ID_LIFECYCLE},data,#GET{enfants}})]})]
+
+[(#EVAL{_AJAX}|oui)
+	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
+]
+</BOUCLE_lifecycle>
+[(#ENV**{exec}|=={lifecycle_edit}|?{#INCLURE{fond=prive/squelettes/contenu/lifecycle_edit,redirect='',env,retourajax=oui},#REM|sinon_interdire_acces})]
+<//B_lifecycle>

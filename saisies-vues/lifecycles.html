@@ -1,0 +1,20 @@
+<BOUCLE_test_multiple(CONDITION){si #ENV{multiple}|=={on}|oui}>
+	[(#SET{valeur,[(#ENV*{valeur}|is_array|?{[(#ENV*{valeur})],[(#ENV*{valeur}|explode{','})]})]})]
+	<B_lifecycles_selectionnes>
+	<ul>
+	<BOUCLE_lifecycles_selectionnes(LIFECYCLES){id_lifecycle IN #GET*{valeur}}
+		{par num statut, statut}{statut?}{tout}>
+		<li class="choix">#STATUT (#ID_LIFECYCLE)</li>
+	</BOUCLE_lifecycles_selectionnes>
+	</ul>
+	</B_lifecycles_selectionnes>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_lifecycles_selectionnes>
+</BOUCLE_test_multiple>
+	<BOUCLE_lifecycle_selectionne(LIFECYCLES){id_lifecycle=#ENV{valeur}}
+		{par num statut, statut}{statut?}{tout}>
+	  	<p>#STATUT (#ID_LIFECYCLE)</p>
+	</BOUCLE_lifecycle_selectionne>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_lifecycle_selectionne>
+<//B_test_multiple>

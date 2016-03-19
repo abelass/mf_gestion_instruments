@@ -1,8 +1,8 @@
 <?php
 /**
- * Fichier gérant l'installation et désinstallation du plugin Gestion des instruments de Music Fund 
+ * Fichier gérant l'installation et désinstallation du plugin Gestion des instruments de Music Fund
  *
- * @plugin     Gestion des instruments de Music Fund 
+ * @plugin     Gestion des instruments de Music Fund
  * @copyright  2016
  * @author     Orlando
  * @licence    GNU/GPL
@@ -20,7 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * - créer la structure SQL,
  * - insérer du pre-contenu,
  * - installer des valeurs de configuration,
- * - mettre à jour la structure SQL 
+ * - mettre à jour la structure SQL
  *
  * @param string $nom_meta_base_version
  *     Nom de la meta informant de la version du schéma de données du plugin installé dans SPIP
@@ -32,7 +32,7 @@ function mf_gestion_instruments_upgrade($nom_meta_base_version, $version_cible) 
 	$maj = array();
 	# quelques exemples
 	# (que vous pouvez supprimer !)
-	# 
+	#
 	# $maj['create'] = array(array('creer_base'));
 	#
 	# include_spip('inc/config')
@@ -50,6 +50,7 @@ function mf_gestion_instruments_upgrade($nom_meta_base_version, $version_cible) 
 	# ...
 
 	$maj['create'] = array(array('maj_tables', array('spip_instruments')));
+	$maj['1.0.1'] = array(array('maj_tables', array('spip_lifecycles')));
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
@@ -58,11 +59,11 @@ function mf_gestion_instruments_upgrade($nom_meta_base_version, $version_cible) 
 
 /**
  * Fonction de désinstallation du plugin Gestion des instruments de Music Fund .
- * 
+ *
  * Vous devez :
  *
  * - nettoyer toutes les données ajoutées par le plugin et son utilisation
- * - supprimer les tables et les champs créés par le plugin. 
+ * - supprimer les tables et les champs créés par le plugin.
  *
  * @param string $nom_meta_base_version
  *     Nom de la meta informant de la version du schéma de données du plugin installé dans SPIP
@@ -75,11 +76,12 @@ function mf_gestion_instruments_vider_tables($nom_meta_base_version) {
 	# sql_drop_table("spip_xx_liens");
 
 	sql_drop_table("spip_instruments");
+	sql_drop_table("spip_lifecycles");
 
 	# Nettoyer les versionnages et forums
-	sql_delete("spip_versions",              sql_in("objet", array('instrument')));
-	sql_delete("spip_versions_fragments",    sql_in("objet", array('instrument')));
-	sql_delete("spip_forum",                 sql_in("objet", array('instrument')));
+	sql_delete("spip_versions",              sql_in("objet", array('instrument', 'lifecycles')));
+	sql_delete("spip_versions_fragments",    sql_in("objet", array('instrument', 'lifecycles')));
+	sql_delete("spip_forum",                 sql_in("objet", array('instrument', 'lifecycles')));
 
 	effacer_meta($nom_meta_base_version);
 }
