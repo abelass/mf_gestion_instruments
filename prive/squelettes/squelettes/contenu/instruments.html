@@ -1,8 +1,0 @@
-#FORMULAIRE_RECHERCHE_ECRIRE{#SELF,ajax}
-<div class="nettoyeur"></div>
-
-<INCLURE{fond=prive/objets/liste/instruments, par=titre, env, ajax, sinon=<:instrument:info_aucun_instrument:>}>
-
-[(#AUTORISER{creer,instrument})
-	[(#URL_ECRIRE{instrument_edit,new=oui}|icone_verticale{<:instrument:icone_creer_instrument:>,instrument,new,right})]
-]
