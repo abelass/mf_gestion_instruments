@@ -25,6 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * Optimiser la base de données 
  * 
  * Supprime les objets à la poubelle.
+ * Supprime les objets à la poubelle.
  *
  * @pipeline optimiser_base_disparus
  * @param  array $flux Données du pipeline
@@ -33,6 +34,8 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 function mf_gestion_instruments_optimiser_base_disparus($flux){
 
 	sql_delete("spip_instruments", "statut='poubelle' AND maj < " . $flux['args']['date']);
+
+	sql_delete("spip_lifecycles", "statut='poubelle' AND maj < " . $flux['args']['date']);
 
 	return $flux;
 }

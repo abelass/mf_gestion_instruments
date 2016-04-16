@@ -2,7 +2,7 @@
 /**
  * Déclarations relatives à la base de données
  *
- * @plugin     Gestion des instruments de Music Fund
+ * @plugin     Gestion des instruments de Music Fund 
  * @copyright  2016
  * @author     Orlando
  * @licence    GNU/GPL
@@ -24,11 +24,10 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 function mf_gestion_instruments_declarer_tables_interfaces($interfaces) {
 
 	$interfaces['table_des_tables']['instruments'] = 'instruments';
-	$interfaces['table_des_tables']['interfaces'] = 'interfaces';
+	$interfaces['table_des_tables']['lifecycles'] = 'lifecycles';
 
 	return $interfaces;
 }
-
 
 
 /**
@@ -52,13 +51,13 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'date_creation'      => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
 			'descriptif'         => 'mediumtext NOT NULL DEFAULT ""',
 			'nombre'             => 'int(11) NOT NULL DEFAULT 1',
-			'date_creation'      => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
-			'statut'             => 'varchar(20)  DEFAULT "0" NOT NULL',
+			'date_creation'      => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"', 
+			'statut'             => 'varchar(20)  DEFAULT "0" NOT NULL', 
 			'maj'                => 'TIMESTAMP'
 		),
 		'key' => array(
 			'PRIMARY KEY'        => 'id_instrument',
-			'KEY statut'         => 'statut',
+			'KEY statut'         => 'statut', 
 		),
 		'titre' => 'titre AS titre, "" AS lang',
 		'date' => 'date_creation',
@@ -78,12 +77,12 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 				'champ'     => 'statut',
 				'publie'    => 'publie',
 				'previsu'   => 'publie,prop,prepa',
-				'post_date' => 'date',
+				'post_date' => 'date', 
 				'exception' => array('statut','tout')
 			)
 		),
-		'texte_changer_statut' => 'instrument:texte_changer_statut_instrument',
-
+		'texte_changer_statut' => 'instrument:texte_changer_statut_instrument', 
+		
 
 	);
 
@@ -98,12 +97,12 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'descriptif'         => 'text NOT NULL DEFAULT ""',
 			'nombre'             => 'int(11) NOT NULL DEFAULT 1',
 			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
-			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
+			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"', 
 			'maj'                => 'TIMESTAMP'
 		),
 		'key' => array(
 			'PRIMARY KEY'        => 'id_lifecycle',
-			'KEY statut'         => 'statut, id_instrument, id_contact',
+			'KEY statut'         => 'statut', 
 		),
 		'titre' => 'statut AS titre, "" AS lang',
 		'date' => 'date',
@@ -111,10 +110,9 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 		'champs_versionnes' => array('id_instrument', 'id_contact', 'statut', 'descriptif', 'nombre', 'date'),
 		'rechercher_champs' => array("statut" => 8, "descriptif" => 5, "date" => 8),
 		'tables_jointures'  => array(),
-
+		
 
 	);
 
 	return $tables;
 }
-
