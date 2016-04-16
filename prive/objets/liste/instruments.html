@@ -6,25 +6,25 @@
 }})]<B_liste_instruments>
 #ANCRE_PAGINATION
 <div class="liste-objets instruments">
-<table class="spip liste">
+<table class='spip liste'>
 	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{instrument:info_1_instrument,instrument:info_nb_instruments}})</strong></caption>]
 	<thead>
-		<tr class="first_row">
-			<th class="picto" scope="col"></th>
-			<th class="statut" scope="col">[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th> 
-			<th class="titre" scope="col">[(#TRI{titre,<:instrument:champ_titre_label:>,ajax})]</th>
-			<th class="date" scope="col">[(#TRI{date_creation,<:date:>,ajax})]</th> 
-			<th class="id" scope="col">[(#TRI{id_instrument,<:info_numero_abbreviation:>,ajax})]</th>
+		<tr class='first_row'>
+			<th class='picto' scope='col'></th>
+			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th> 
+			<th class='titre' scope='col'>[(#TRI{titre,<:instrument:champ_titre_label:>,ajax})]</th>
+			<th class='date' scope='col'>[(#TRI{date_creation,<:date:>,ajax})]</th> 
+			<th class='id' scope='col'>[(#TRI{id_instrument,<:info_numero_abbreviation:>,ajax})]</th>
 		</tr>
 	</thead>
 	<tbody>
 	<BOUCLE_liste_instruments(INSTRUMENTS){id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,num titre},#GET{defaut_tri}}{par titre}{pagination #ENV{nb,10}}>
-		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
-			<td class="picto">[(#CHEMIN_IMAGE{instrument-16.png}|balise_img)]</td>
-			<td class="statut">[(#STATUT|puce_statut{instrument,#ID_INSTRUMENT})]</td> 
-			<td class="titre principale">[(#LOGO_INSTRUMENT|image_reduire{20,26})]<a href="[(#ID_INSTRUMENT|generer_url_entite{instrument})]" title="<:info_numero_abbreviation|attribut_html:> #ID_INSTRUMENT">[(#RANG). ]#TITRE</a></td>
-			<td class="date secondaire">[(#DATE_CREATION|affdate_jourcourt)]</td> 
-			<td class="id">[(#AUTORISER{modifier,instrument,#ID_INSTRUMENT}|?{
+		<tr class='[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]'>
+			<td class='picto'>[(#CHEMIN_IMAGE{instrument-16.png}|balise_img)]</td>
+			<td class='statut'>[(#STATUT|puce_statut{instrument,#ID_INSTRUMENT})]</td> 
+			<td class='titre principale'>[(#LOGO_INSTRUMENT|image_reduire{20,26})]<a href="[(#ID_INSTRUMENT|generer_url_entite{instrument})]" title="<:info_numero_abbreviation|attribut_html:> #ID_INSTRUMENT">[(#RANG). ]#TITRE</a></td>
+			<td class='date secondaire'>[(#DATE_CREATION|affdate_jourcourt)]</td> 
+			<td class='id'>[(#AUTORISER{modifier,instrument,#ID_INSTRUMENT}|?{
 				<a href="[(#URL_ECRIRE{instrument_edit,id_instrument=#ID_INSTRUMENT})]">#ID_INSTRUMENT</a>,
 				#ID_INSTRUMENT
 			})]</td>
@@ -32,7 +32,7 @@
 	</BOUCLE_liste_instruments>
 	</tbody>
 </table>
-[<p class="pagination">(#PAGINATION{prive})</p>]
+[<p class='pagination'>(#PAGINATION{prive})</p>]
 </div>
 </B_liste_instruments>[
 <div class="liste-objets instruments caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>

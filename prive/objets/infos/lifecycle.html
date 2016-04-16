@@ -1,7 +1,7 @@
 <BOUCLE_lifecycle(LIFECYCLES){id_lifecycle=#ENV{id}}{statut?}>
-<div class="infos">
+<div class='infos'>
 [(#SET{texte_objet,<:lifecycle:titre_lifecycle:>})]
-<div class="numero"><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_LIFECYCLE</p></div>
+<div class='numero'><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_LIFECYCLE</p></div>
 
 [(#FORMULAIRE_INSTITUER_OBJET{lifecycles,#ID_LIFECYCLE})]
 

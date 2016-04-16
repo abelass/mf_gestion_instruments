@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  Fichier généré par la Fabrique de plugin v6
- *   le 2016-04-16 12:38:52
+ *  Fichier généré par la Fabrique de plugin v5
+ *   le 2016-04-16 15:18:43
  *
  *  Ce fichier de sauvegarde peut servir à recréer
  *  votre plugin avec le plugin «Fabrique» qui a servi à le créer.
@@ -22,14 +22,14 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 $data = array (
   'fabrique' => 
   array (
-    'version' => 6,
+    'version' => 5,
   ),
   'paquet' => 
   array (
-    'prefixe' => 'mf_gestion_instruments',
     'nom' => 'Gestion des instruments de Music Fund ',
     'slogan' => '',
     'description' => '',
+    'prefixe' => 'mf_gestion_instruments',
     'version' => '1.0.0',
     'auteur' => 'Orlando',
     'auteur_lien' => '',
@@ -80,13 +80,6 @@ $data = array (
       'nom' => 'Instruments',
       'nom_singulier' => 'Instrument',
       'genre' => 'masculin',
-      'logo' => 
-      array (
-        32 => '',
-        24 => '',
-        16 => '',
-        12 => '',
-      ),
       'logo_variantes' => '',
       'table' => 'spip_instruments',
       'cle_primaire' => 'id_instrument',
@@ -173,10 +166,6 @@ $data = array (
         ),
       ),
       'champ_titre' => 'titre',
-      'rubriques' => 
-      array (
-        0 => 'plan',
-      ),
       'champ_date' => 'date_creation',
       'statut' => 'on',
       'chaines' => 
@@ -199,29 +188,16 @@ $data = array (
         'texte_ajouter_objet' => 'Ajouter un instrument',
         'texte_creer_associer_objet' => 'Créer et associer un instrument',
         'texte_changer_statut_objet' => 'Cet instrument est :',
-        'supprimer_objet' => 'Supprimer cet instrument',
-        'confirmer_supprimer_objet' => 'Confirmez-vous la suppression de cet instrument ?',
       ),
       'table_liens' => '',
       'roles' => '',
       'auteurs_liens' => '',
       'vue_auteurs_liens' => '',
-      'fichiers' => 
+      'echafaudages' => 
       array (
-        'echafaudages' => 
-        array (
-          0 => 'prive/squelettes/contenu/objets.html',
-          1 => 'prive/objets/infos/objet.html',
-          2 => 'prive/squelettes/contenu/objet.html',
-        ),
-        'explicites' => 
-        array (
-          0 => 'action/supprimer_objet.php',
-        ),
-      ),
-      'saisies' => 
-      array (
-        0 => 'objets',
+        0 => 'prive/squelettes/contenu/objets.html',
+        1 => 'prive/objets/infos/objet.html',
+        2 => 'prive/squelettes/contenu/objet.html',
       ),
       'autorisations' => 
       array (
@@ -236,19 +212,16 @@ $data = array (
         0 => 'menu_edition',
         1 => 'outils_rapides',
       ),
+      'saisies' => 
+      array (
+        0 => 'objets',
+      ),
     ),
     1 => 
     array (
       'nom' => 'Lifecycles',
       'nom_singulier' => 'Lifecycle',
       'genre' => 'masculin',
-      'logo' => 
-      array (
-        32 => '',
-        24 => '',
-        16 => '',
-        12 => '',
-      ),
       'logo_variantes' => '',
       'table' => 'spip_lifecycles',
       'cle_primaire' => 'id_lifecycle',
@@ -285,22 +258,6 @@ $data = array (
           ),
           'recherche' => '',
           'saisie' => 'contacts',
-          'explication' => '',
-          'saisie_options' => '',
-        ),
-        2 => 
-        array (
-          'nom' => 'Statut',
-          'champ' => 'statut',
-          'sql' => 'varchar(50) NOT NULL DEFAULT \'\'',
-          'caracteristiques' => 
-          array (
-            0 => 'editable',
-            1 => 'versionne',
-            2 => 'obligatoire',
-          ),
-          'recherche' => '8',
-          'saisie' => 'input',
           'explication' => '',
           'saisie_options' => '',
         ),
@@ -353,7 +310,7 @@ $data = array (
       ),
       'champ_titre' => 'statut',
       'champ_date' => 'date',
-      'statut' => '',
+      'statut' => 'on',
       'chaines' => 
       array (
         'titre_objets' => 'Lifecycles',
@@ -374,29 +331,16 @@ $data = array (
         'texte_ajouter_objet' => 'Ajouter un lifecycle',
         'texte_creer_associer_objet' => 'Créer et associer un lifecycle',
         'texte_changer_statut_objet' => 'Ce lifecycle est :',
-        'supprimer_objet' => 'Supprimer ce lifecycle',
-        'confirmer_supprimer_objet' => 'Confirmez-vous la suppression de ce lifecycle ?',
       ),
       'table_liens' => '',
       'roles' => '',
       'auteurs_liens' => '',
       'vue_auteurs_liens' => '',
-      'fichiers' => 
+      'echafaudages' => 
       array (
-        'echafaudages' => 
-        array (
-          0 => 'prive/squelettes/contenu/objets.html',
-          1 => 'prive/objets/infos/objet.html',
-          2 => 'prive/squelettes/contenu/objet.html',
-        ),
-        'explicites' => 
-        array (
-          0 => 'action/supprimer_objet.php',
-        ),
-      ),
-      'saisies' => 
-      array (
-        0 => 'objets',
+        0 => 'prive/squelettes/contenu/objets.html',
+        1 => 'prive/objets/infos/objet.html',
+        2 => 'prive/squelettes/contenu/objet.html',
       ),
       'autorisations' => 
       array (
@@ -410,6 +354,10 @@ $data = array (
       array (
         0 => 'menu_edition',
         1 => 'outils_rapides',
+      ),
+      'saisies' => 
+      array (
+        0 => 'objets',
       ),
     ),
   ),
@@ -453,3 +401,5 @@ $data = array (
     ),
   ),
 );
+
+?>

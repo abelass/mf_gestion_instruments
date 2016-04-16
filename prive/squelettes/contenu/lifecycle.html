@@ -38,14 +38,6 @@
 #PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,lifecycle,id,#ID_LIFECYCLE},data,'<div class="nettoyeur"></div>'}}
 
 #BOITE_FERMER
-
-
-#SET{enfants,''}
-[(#VAL{prive/objets/contenu/lifecycle-enfants}|trouver_fond|oui)
-	[(#SET{enfants,[(#INCLURE{fond=prive/objets/contenu/lifecycle-enfants,id_lifecycle,env})]})]
-]
-[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,lifecycle,id_lifecycle,#ID_LIFECYCLE,objet,lifecycle,id_objet,#ID_LIFECYCLE},data,#GET{enfants}})]})]
-
 [(#EVAL{_AJAX}|oui)
 	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
 ]

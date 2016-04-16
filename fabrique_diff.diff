@@ -1,0 +1,61 @@
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_mf_gestion_instruments.php ../plugins/fabrique_auto/.backup/mf_gestion_instruments/base/mf_gestion_instruments.php ../plugins/fabrique_auto/mf_gestion_instruments/base/mf_gestion_instruments.php
+96d95
+< 			"statut"             => "varchar(50) NOT NULL DEFAULT ''",
+100a100
+> 			"statut"             => "varchar(20)  DEFAULT '0' NOT NULL",
+109,111c109,111
+< 		'champs_editables'  => array('id_instrument', 'id_contact', 'statut', 'descriptif', 'nombre', 'date'),
+< 		'champs_versionnes' => array('id_instrument', 'id_contact', 'statut', 'descriptif', 'nombre', 'date'),
+< 		'rechercher_champs' => array("statut" => 8, "descriptif" => 5, "date" => 8),
+---
+> 		'champs_editables'  => array('id_instrument', 'id_contact', 'descriptif', 'nombre', 'date'),
+> 		'champs_versionnes' => array('id_instrument', 'id_contact', 'descriptif', 'nombre', 'date'),
+> 		'rechercher_champs' => array("descriptif" => 5, "date" => 8),
+112a113,129
+> 		'statut_textes_instituer' => array(
+> 			'prepa'    => 'texte_statut_en_cours_redaction',
+> 			'prop'     => 'texte_statut_propose_evaluation',
+> 			'publie'   => 'texte_statut_publie',
+> 			'refuse'   => 'texte_statut_refuse',
+> 			'poubelle' => 'texte_statut_poubelle',
+> 		),
+> 		'statut'=> array(
+> 			array(
+> 				'champ'     => 'statut',
+> 				'publie'    => 'publie',
+> 				'previsu'   => 'publie,prop,prepa',
+> 				'post_date' => 'date',
+> 				'exception' => array('statut','tout')
+> 			)
+> 		),
+> 		'texte_changer_statut' => 'lifecycle:texte_changer_statut_lifecycle',
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_mf_gestion_instruments.php ../plugins/fabrique_auto/.backup/mf_gestion_instruments/formulaires/editer_lifecycle.html ../plugins/fabrique_auto/mf_gestion_instruments/formulaires/editer_lifecycle.html
+17,19d16
+< 			[(#SAISIE{input, statut, obligatoire=oui,
+< 				label=<:lifecycle:champ_statut_label:>})]
+<
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_mf_gestion_instruments.php ../plugins/fabrique_auto/.backup/mf_gestion_instruments/formulaires/editer_lifecycle.php ../plugins/fabrique_auto/mf_gestion_instruments/formulaires/editer_lifecycle.php
+106c106
+< 	$erreurs += formulaires_editer_objet_verifier('lifecycle',$id_lifecycle, array('id_instrument', 'id_contact', 'statut', 'date'));
+---
+> 	$erreurs += formulaires_editer_objet_verifier('lifecycle',$id_lifecycle, array('id_instrument', 'id_contact', 'date'));
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_mf_gestion_instruments.php ../plugins/fabrique_auto/.backup/mf_gestion_instruments/lang/lifecycle_fr.php ../plugins/fabrique_auto/mf_gestion_instruments/lang/lifecycle_fr.php
+18d17
+< 	'champ_statut_label' => 'Statut',
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_mf_gestion_instruments.php ../plugins/fabrique_auto/.backup/mf_gestion_instruments/paquet.xml ../plugins/fabrique_auto/mf_gestion_instruments/paquet.xml
+12c12
+< 		Paquet genere le 2016-04-16 13:02:32
+---
+> 		Paquet genere le 2016-04-16 15:18:44
+diff -r -x . -x .. -x fabrique_diff.diff -x fabrique_mf_gestion_instruments.php ../plugins/fabrique_auto/.backup/mf_gestion_instruments/prive/objets/contenu/lifecycle.html ../plugins/fabrique_auto/mf_gestion_instruments/prive/objets/contenu/lifecycle.html
+13,17d12
+< [<div class="champ contenu_statut[ (#STATUT*|strlen|?{'',vide})]">
+< 	<label><:lifecycle:champ_statut_label:> : </label>
+< 	<span dir='#LANG_DIR' class='#EDIT{statut} statut'>(#STATUT)</span>
+< </div>]
+<
+Only in ../plugins/fabrique_auto/mf_gestion_instruments/prive/objets: infos
+Only in ../plugins/fabrique_auto/mf_gestion_instruments/prive/squelettes/contenu: instrument.html
+Only in ../plugins/fabrique_auto/mf_gestion_instruments/prive/squelettes/contenu: instruments.html
+Only in ../plugins/fabrique_auto/mf_gestion_instruments/prive/squelettes/contenu: lifecycle.html
+Only in ../plugins/fabrique_auto/mf_gestion_instruments/prive/squelettes/contenu: lifecycles.html

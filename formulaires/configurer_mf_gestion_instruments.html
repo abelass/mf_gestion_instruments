@@ -9,11 +9,11 @@
 	<div>
 		#ACTION_FORMULAIRE{#ENV{action}}
 
-		<div class="editer-groupe">
+		<ul>
 			[(#SAISIE{input, exemple,
 				label=<:mf_gestion_instruments:cfg_exemple:>,
 				explication=<:mf_gestion_instruments:cfg_exemple_explication:>})]
-		</div>
+		</ul>
 
 		<input type="hidden" name="_meta_casier" value="mf_gestion_instruments" />
 		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>

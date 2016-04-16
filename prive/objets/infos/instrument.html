@@ -1,7 +1,7 @@
 <BOUCLE_instrument(INSTRUMENTS){id_instrument=#ENV{id}}{statut?}>
-<div class="infos">
+<div class='infos'>
 [(#SET{texte_objet,<:instrument:titre_instrument:>})]
-<div class="numero"><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_INSTRUMENT</p></div>
+<div class='numero'><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_INSTRUMENT</p></div>
 
 [(#FORMULAIRE_INSTITUER_OBJET{instruments,#ID_INSTRUMENT})]
 

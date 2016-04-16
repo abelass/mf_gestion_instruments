@@ -3,30 +3,30 @@
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 
 	[(#ENV{editable})
-	<form method="post" action="#ENV{action}"><div>
+	<form method='post' action='#ENV{action}'><div>
 		#ACTION_FORMULAIRE{#ENV{action}}
-		<input type="hidden" name="id_instrument" value="#ENV{id_instrument}" />
-		<div class="editer-groupe">
- 
+		<input type='hidden' name='id_instrument' value='#ENV{id_instrument}' />
+		<ul>
+
 			[(#SAISIE{input, titre, obligatoire=oui,
 				label=<:instrument:champ_titre_label:>})]
- 
+
 			[(#SAISIE{input, mf_id, obligatoire=oui,
 				label=<:instrument:champ_mf_id_label:>})]
- 
+
 			[(#SAISIE{date, date_creation, obligatoire=oui,
 				label=<:instrument:champ_date_creation_label:>})]
- 
+
 			[(#SAISIE{textarea, descriptif,
 				label=<:instrument:champ_descriptif_label:>})]
- 
+
 			[(#SAISIE{input, nombre,
 				label=<:instrument:champ_nombre_label:>})]
 
-		</div>
+		</ul>
 		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 		<!--extra-->
-		<p class="boutons"><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+		<p class="boutons"><input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
 	</div></form>
 	]
 </div>

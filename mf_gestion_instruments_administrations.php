@@ -38,7 +38,7 @@ function mf_gestion_instruments_upgrade($nom_meta_base_version, $version_cible) 
 	# include_spip('inc/config')
 	# $maj['create'] = array(
 	#	array('maj_tables', array('spip_xx', 'spip_xx_liens')),
-	#	array('ecrire_config', 'mf_gestion_instruments', array('exemple' => "Texte de l'exemple"))
+	#	array('ecrire_config', array('mf_gestion_instruments', array('exemple' => "Texte de l'exemple")))
 	#);
 	#
 	# $maj['1.1.0']  = array(array('sql_alter','TABLE spip_xx RENAME TO spip_yy'));
@@ -84,3 +84,5 @@ function mf_gestion_instruments_vider_tables($nom_meta_base_version) {
 
 	effacer_meta($nom_meta_base_version);
 }
+
+?>

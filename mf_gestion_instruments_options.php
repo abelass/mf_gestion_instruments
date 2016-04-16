@@ -1,6 +1,6 @@
 <?php
 /**
- * Options au chargement du plugin Gestion des instruments de Music Fund 
+ * Options du plugin Gestion des instruments de Music Fund au chargement
  *
  * @plugin     Gestion des instruments de Music Fund 
  * @copyright  2016
@@ -20,3 +20,5 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * tout comme son volume !
  * 
  */
+
+?>

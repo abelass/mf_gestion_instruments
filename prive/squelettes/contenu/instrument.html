@@ -38,14 +38,6 @@
 #PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,instrument,id,#ID_INSTRUMENT},data,'<div class="nettoyeur"></div>'}}
 
 #BOITE_FERMER
-
-
-#SET{enfants,''}
-[(#VAL{prive/objets/contenu/instrument-enfants}|trouver_fond|oui)
-	[(#SET{enfants,[(#INCLURE{fond=prive/objets/contenu/instrument-enfants,id_instrument,env})]})]
-]
-[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,instrument,id_instrument,#ID_INSTRUMENT,objet,instrument,id_objet,#ID_INSTRUMENT},data,#GET{enfants}})]})]
-
 [(#EVAL{_AJAX}|oui)
 	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
 ]

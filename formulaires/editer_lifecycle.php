@@ -59,8 +59,7 @@ function formulaires_editer_lifecycle_identifier_dist($id_lifecycle='new', $reto
  *     Environnement du formulaire
  */
 function formulaires_editer_lifecycle_charger_dist($id_lifecycle='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
-	$valeurs = formulaires_editer_objet_charger('lifecycle', $id_lifecycle, '', $lier_trad, $retour, $config_fonc, $row, $hidden);
-	
+	$valeurs = formulaires_editer_objet_charger('lifecycle',$id_lifecycle,'',$lier_trad,$retour,$config_fonc,$row,$hidden);
 	return $valeurs;
 }
 
@@ -87,11 +86,11 @@ function formulaires_editer_lifecycle_charger_dist($id_lifecycle='new', $retour=
  *     Tableau des erreurs
  */
 function formulaires_editer_lifecycle_verifier_dist($id_lifecycle='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
-	$erreurs = array();
 
+	$erreurs = array();
 	$verifier = charger_fonction('verifier', 'inc');
 
-	foreach (array('date') AS $champ) {
+	foreach (array('date') AS $champ){
 		$normaliser = null;
 		if ($erreur = $verifier(_request($champ), 'date', array('normaliser'=>'datetime'), $normaliser)) {
 			$erreurs[$champ] = $erreur;
@@ -104,9 +103,10 @@ function formulaires_editer_lifecycle_verifier_dist($id_lifecycle='new', $retour
 		}
 	}
 
-	$erreurs += formulaires_editer_objet_verifier('lifecycle', $id_lifecycle, array('id_instrument', 'id_contact', 'statut', 'date'));
+	$erreurs += formulaires_editer_objet_verifier('lifecycle',$id_lifecycle, array('id_instrument', 'id_contact', 'date'));
 
 	return $erreurs;
+
 }
 
 /**
@@ -132,6 +132,8 @@ function formulaires_editer_lifecycle_verifier_dist($id_lifecycle='new', $retour
  *     Retours des traitements
  */
 function formulaires_editer_lifecycle_traiter_dist($id_lifecycle='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
-	$retours = formulaires_editer_objet_traiter('lifecycle', $id_lifecycle, '', $lier_trad, $retour, $config_fonc, $row, $hidden);
-	return $retours;
+	return formulaires_editer_objet_traiter('lifecycle',$id_lifecycle,'',$lier_trad,$retour,$config_fonc,$row,$hidden);
 }
+
+
+?>

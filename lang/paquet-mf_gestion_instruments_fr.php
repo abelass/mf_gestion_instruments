@@ -10,3 +10,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'mf_gestion_instruments_nom' => 'Gestion des instruments de Music Fund ',
 	'mf_gestion_instruments_slogan' => '',
 );
+
+?>

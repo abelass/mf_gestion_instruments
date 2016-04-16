@@ -59,8 +59,7 @@ function formulaires_editer_instrument_identifier_dist($id_instrument='new', $re
  *     Environnement du formulaire
  */
 function formulaires_editer_instrument_charger_dist($id_instrument='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
-	$valeurs = formulaires_editer_objet_charger('instrument', $id_instrument, '', $lier_trad, $retour, $config_fonc, $row, $hidden);
-	
+	$valeurs = formulaires_editer_objet_charger('instrument',$id_instrument,'',$lier_trad,$retour,$config_fonc,$row,$hidden);
 	return $valeurs;
 }
 
@@ -87,11 +86,11 @@ function formulaires_editer_instrument_charger_dist($id_instrument='new', $retou
  *     Tableau des erreurs
  */
 function formulaires_editer_instrument_verifier_dist($id_instrument='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
-	$erreurs = array();
 
+	$erreurs = array();
 	$verifier = charger_fonction('verifier', 'inc');
 
-	foreach (array('date_creation') AS $champ) {
+	foreach (array('date_creation') AS $champ){
 		$normaliser = null;
 		if ($erreur = $verifier(_request($champ), 'date', array('normaliser'=>'datetime'), $normaliser)) {
 			$erreurs[$champ] = $erreur;
@@ -104,9 +103,10 @@ function formulaires_editer_instrument_verifier_dist($id_instrument='new', $reto
 		}
 	}
 
-	$erreurs += formulaires_editer_objet_verifier('instrument', $id_instrument, array('titre', 'mf_id', 'date_creation'));
+	$erreurs += formulaires_editer_objet_verifier('instrument',$id_instrument, array('titre', 'mf_id', 'date_creation'));
 
 	return $erreurs;
+
 }
 
 /**
@@ -132,6 +132,8 @@ function formulaires_editer_instrument_verifier_dist($id_instrument='new', $reto
  *     Retours des traitements
  */
 function formulaires_editer_instrument_traiter_dist($id_instrument='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
-	$retours = formulaires_editer_objet_traiter('instrument', $id_instrument, '', $lier_trad, $retour, $config_fonc, $row, $hidden);
-	return $retours;
+	return formulaires_editer_objet_traiter('instrument',$id_instrument,'',$lier_trad,$retour,$config_fonc,$row,$hidden);
 }
+
+
+?>

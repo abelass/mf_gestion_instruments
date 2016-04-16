@@ -45,22 +45,22 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 		'type' => 'instrument',
 		'principale' => "oui",
 		'field'=> array(
-			'id_instrument'      => 'bigint(21) NOT NULL',
-			'titre'              => 'varchar(255) NOT NULL DEFAULT ""',
-			'mf_id'              => 'varchar(50) NOT NULL DEFAULT ""',
-			'date_creation'      => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
-			'descriptif'         => 'mediumtext NOT NULL DEFAULT ""',
-			'nombre'             => 'int(11) NOT NULL DEFAULT 1',
-			'date_creation'      => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"', 
-			'statut'             => 'varchar(20)  DEFAULT "0" NOT NULL', 
-			'maj'                => 'TIMESTAMP'
+			"id_instrument"      => "bigint(21) NOT NULL",
+			"titre"              => "varchar(255) NOT NULL DEFAULT ''",
+			"mf_id"              => "varchar(50) NOT NULL DEFAULT ''",
+			"date_creation"      => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
+			"descriptif"         => "mediumtext NOT NULL DEFAULT ''",
+			"nombre"             => "int(11) NOT NULL DEFAULT 1",
+			"date_creation"      => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'", 
+			"statut"             => "varchar(20)  DEFAULT '0' NOT NULL", 
+			"maj"                => "TIMESTAMP"
 		),
 		'key' => array(
-			'PRIMARY KEY'        => 'id_instrument',
-			'KEY statut'         => 'statut', 
+			"PRIMARY KEY"        => "id_instrument",
+			"KEY statut"         => "statut", 
 		),
-		'titre' => 'titre AS titre, "" AS lang',
-		'date' => 'date_creation',
+		'titre' => "titre AS titre, '' AS lang",
+		'date' => "date_creation",
 		'champs_editables'  => array('titre', 'mf_id', 'date_creation', 'descriptif', 'nombre'),
 		'champs_versionnes' => array('titre', 'mf_id', 'descriptif', 'nombre'),
 		'rechercher_champs' => array("titre" => 8, "mf_id" => 8, "descriptif" => 5),
@@ -90,29 +90,50 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 		'type' => 'lifecycle',
 		'principale' => "oui",
 		'field'=> array(
-			'id_lifecycle'       => 'bigint(21) NOT NULL',
-			'id_instrument'      => 'int(11) NOT NULL DEFAULT 0',
-			'id_contact'         => 'int(11) NOT NULL DEFAULT 0',
-			'statut'             => 'varchar(50) NOT NULL DEFAULT ""',
-			'descriptif'         => 'text NOT NULL DEFAULT ""',
-			'nombre'             => 'int(11) NOT NULL DEFAULT 1',
-			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
-			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"', 
-			'maj'                => 'TIMESTAMP'
+			"id_lifecycle"       => "bigint(21) NOT NULL",
+			"id_instrument"      => "int(11) NOT NULL DEFAULT 0",
+			"id_contact"         => "int(11) NOT NULL DEFAULT 0",
+			"descriptif"         => "text NOT NULL DEFAULT ''",
+			"nombre"             => "int(11) NOT NULL DEFAULT 1",
+			"date"               => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
+			"date"               => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'", 
+			"statut"             => "varchar(20)  DEFAULT '0' NOT NULL", 
+			"maj"                => "TIMESTAMP"
 		),
 		'key' => array(
-			'PRIMARY KEY'        => 'id_lifecycle',
-			'KEY statut'         => 'statut', 
+			"PRIMARY KEY"        => "id_lifecycle",
+			"KEY statut"         => "statut", 
 		),
-		'titre' => 'statut AS titre, "" AS lang',
-		'date' => 'date',
-		'champs_editables'  => array('id_instrument', 'id_contact', 'statut', 'descriptif', 'nombre', 'date'),
-		'champs_versionnes' => array('id_instrument', 'id_contact', 'statut', 'descriptif', 'nombre', 'date'),
-		'rechercher_champs' => array("statut" => 8, "descriptif" => 5, "date" => 8),
+		'titre' => "statut AS titre, '' AS lang",
+		'date' => "date",
+		'champs_editables'  => array('id_instrument', 'id_contact', 'descriptif', 'nombre', 'date'),
+		'champs_versionnes' => array('id_instrument', 'id_contact', 'descriptif', 'nombre', 'date'),
+		'rechercher_champs' => array("descriptif" => 5, "date" => 8),
 		'tables_jointures'  => array(),
+		'statut_textes_instituer' => array(
+			'prepa'    => 'texte_statut_en_cours_redaction',
+			'prop'     => 'texte_statut_propose_evaluation',
+			'publie'   => 'texte_statut_publie',
+			'refuse'   => 'texte_statut_refuse',
+			'poubelle' => 'texte_statut_poubelle',
+		),
+		'statut'=> array(
+			array(
+				'champ'     => 'statut',
+				'publie'    => 'publie',
+				'previsu'   => 'publie,prop,prepa',
+				'post_date' => 'date', 
+				'exception' => array('statut','tout')
+			)
+		),
+		'texte_changer_statut' => 'lifecycle:texte_changer_statut_lifecycle', 
 		
 
 	);
 
 	return $tables;
 }
+
+
+
+?>

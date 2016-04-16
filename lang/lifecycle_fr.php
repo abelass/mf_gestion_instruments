@@ -15,8 +15,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'champ_id_contact_label' => 'Id_Contact',
 	'champ_id_instrument_label' => 'id_Instrument',
 	'champ_nombre_label' => 'Nombre',
-	'champ_statut_label' => 'Statut',
-	'confirmer_supprimer_lifecycle' => 'Confirmez-vous la suppression de ce lifecycle ?',
 
 	// I
 	'icone_creer_lifecycle' => 'Créer un lifecycle',
@@ -30,9 +28,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'retirer_lien_lifecycle' => 'Retirer ce lifecycle',
 	'retirer_tous_liens_lifecycles' => 'Retirer tous les lifecycles',
 
-	// S
-	'supprimer_lifecycle' => 'Supprimer ce lifecycle',
-
 	// T
 	'texte_ajouter_lifecycle' => 'Ajouter un lifecycle',
 	'texte_changer_statut_lifecycle' => 'Ce lifecycle est :',
@@ -44,3 +39,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_lifecycles_rubrique' => 'Lifecycles de la rubrique',
 	'titre_logo_lifecycle' => 'Logo de ce lifecycle',
 );
+
+?>

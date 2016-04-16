@@ -27,7 +27,7 @@ function mf_gestion_instruments_autoriser(){}
 function autoriser_mf_gestion_instruments_configurer_dist($faire, $type, $id, $qui, $opt) {
 	// type est un objet (la plupart du temps) ou une chose.
 	// autoriser('configurer', '_mf_gestion_instruments') => $type = 'mf_gestion_instruments'
-	// au choix :
+	// au choix
 	return autoriser('webmestre', $type, $id, $qui, $opt); // seulement les webmestres
 	return autoriser('configurer', '', $id, $qui, $opt); // seulement les administrateurs complets
 	return $qui['statut'] == '0minirezo'; // seulement les administrateurs (même les restreints)
@@ -213,3 +213,8 @@ function autoriser_lifecycle_modifier_dist($faire, $type, $id, $qui, $opt) {
 function autoriser_lifecycle_supprimer_dist($faire, $type, $id, $qui, $opt) {
 	return $qui['statut'] == '0minirezo' AND !$qui['restreint'];
 }
+
+
+
+
+?>

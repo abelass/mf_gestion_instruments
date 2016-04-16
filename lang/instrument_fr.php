@@ -15,7 +15,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'champ_mf_id_label' => 'mf_id',
 	'champ_nombre_label' => 'Nombre',
 	'champ_titre_label' => 'Titre',
-	'confirmer_supprimer_instrument' => 'Confirmez-vous la suppression de cet instrument ?',
 
 	// I
 	'icone_creer_instrument' => 'Créer un instrument',
@@ -29,9 +28,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'retirer_lien_instrument' => 'Retirer cet instrument',
 	'retirer_tous_liens_instruments' => 'Retirer tous les instruments',
 
-	// S
-	'supprimer_instrument' => 'Supprimer cet instrument',
-
 	// T
 	'texte_ajouter_instrument' => 'Ajouter un instrument',
 	'texte_changer_statut_instrument' => 'Cet instrument est :',
@@ -43,3 +39,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_langue_instrument' => 'Langue de cet instrument',
 	'titre_logo_instrument' => 'Logo de cet instrument',
 );
+
+?>

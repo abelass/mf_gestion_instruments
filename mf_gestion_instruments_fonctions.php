@@ -19,3 +19,5 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * Il peut par exemple définir des filtres, critères, balises, …
  * 
  */
+
+?>
