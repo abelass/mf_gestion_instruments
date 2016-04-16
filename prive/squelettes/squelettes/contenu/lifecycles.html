@@ -1,0 +1,8 @@
+#FORMULAIRE_RECHERCHE_ECRIRE{#SELF,ajax}
+<div class="nettoyeur"></div>
+
+<INCLURE{fond=prive/objets/liste/lifecycles, par=statut, env, ajax, sinon=<:lifecycle:info_aucun_lifecycle:>}>
+
+[(#AUTORISER{creer,lifecycle})
+	[(#URL_ECRIRE{lifecycle_edit,new=oui}|icone_verticale{<:lifecycle:icone_creer_lifecycle:>,lifecycle,new,right})]
+]
