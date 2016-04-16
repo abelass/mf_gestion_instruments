@@ -2,7 +2,7 @@
 
 /**
  *  Fichier généré par la Fabrique de plugin v6
- *   le 2016-03-19 12:42:57
+ *   le 2016-03-19 14:12:53
  *
  *  Ce fichier de sauvegarde peut servir à recréer
  *  votre plugin avec le plugin «Fabrique» qui a servi à le créer.
@@ -242,6 +242,182 @@ $data = array (
         1 => 'outils_rapides',
       ),
     ),
+    1 => 
+    array (
+      'nom' => 'Lifecycles',
+      'nom_singulier' => 'Lifecycle',
+      'genre' => 'masculin',
+      'logo' => 
+      array (
+        0 => '',
+        32 => '',
+        24 => '',
+        16 => '',
+        12 => '',
+      ),
+      'logo_variantes' => '',
+      'table' => 'spip_lifecycles',
+      'cle_primaire' => 'id_lifecycle',
+      'cle_primaire_sql' => 'bigint(21) NOT NULL',
+      'table_type' => 'lifecycle',
+      'champs' => 
+      array (
+        0 => 
+        array (
+          'nom' => 'id_Instrument',
+          'champ' => 'id_instrument',
+          'sql' => 'int(11) NOT NULL DEFAULT 0',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+            2 => 'obligatoire',
+          ),
+          'recherche' => '',
+          'saisie' => 'instruments',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+        1 => 
+        array (
+          'nom' => 'Id_Contact',
+          'champ' => 'id_contact',
+          'sql' => 'int(11) NOT NULL DEFAULT 0',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+            2 => 'obligatoire',
+          ),
+          'recherche' => '',
+          'saisie' => 'contacts',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+        2 => 
+        array (
+          'nom' => 'Statut',
+          'champ' => 'statut',
+          'sql' => 'varchar(50) NOT NULL DEFAULT \'\'',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+            2 => 'obligatoire',
+          ),
+          'recherche' => '8',
+          'saisie' => 'input',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+        3 => 
+        array (
+          'nom' => 'Descriptif',
+          'champ' => 'descriptif',
+          'sql' => 'text NOT NULL DEFAULT \'\'',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+          ),
+          'recherche' => '5',
+          'saisie' => 'textarea',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+        4 => 
+        array (
+          'nom' => 'Nombre',
+          'champ' => 'nombre',
+          'sql' => 'int(11) NOT NULL DEFAULT 1',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+          ),
+          'recherche' => '',
+          'saisie' => 'input',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+        5 => 
+        array (
+          'nom' => 'Date',
+          'champ' => 'date',
+          'sql' => 'datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\'',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+            2 => 'obligatoire',
+          ),
+          'recherche' => '8',
+          'saisie' => 'date',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+      ),
+      'champ_titre' => 'statut',
+      'champ_date' => 'date',
+      'statut' => '',
+      'chaines' => 
+      array (
+        'titre_objets' => 'Lifecycles',
+        'titre_objet' => 'Lifecycle',
+        'info_aucun_objet' => 'Aucun lifecycle',
+        'info_1_objet' => 'Un lifecycle',
+        'info_nb_objets' => '@nb@ lifecycles',
+        'icone_creer_objet' => 'Créer un lifecycle',
+        'icone_modifier_objet' => 'Modifier ce lifecycle',
+        'titre_logo_objet' => 'Logo de ce lifecycle',
+        'titre_langue_objet' => 'Langue de ce lifecycle',
+        'texte_definir_comme_traduction_objet' => 'Ce lifecycle est une traduction du lifecycle numéro :',
+        'titre_objets_rubrique' => 'Lifecycles de la rubrique',
+        'info_objets_auteur' => 'Les lifecycles de cet auteur',
+        'retirer_lien_objet' => 'Retirer ce lifecycle',
+        'retirer_tous_liens_objets' => 'Retirer tous les lifecycles',
+        'ajouter_lien_objet' => 'Ajouter ce lifecycle',
+        'texte_ajouter_objet' => 'Ajouter un lifecycle',
+        'texte_creer_associer_objet' => 'Créer et associer un lifecycle',
+        'texte_changer_statut_objet' => 'Ce lifecycle est :',
+        'supprimer_objet' => 'Supprimer ce lifecycle',
+        'confirmer_supprimer_objet' => 'Confirmez-vous la suppression de ce lifecycle ?',
+      ),
+      'table_liens' => '',
+      'roles' => '',
+      'auteurs_liens' => '',
+      'vue_auteurs_liens' => '',
+      'fichiers' => 
+      array (
+        'echafaudages' => 
+        array (
+          0 => 'prive/squelettes/contenu/objets.html',
+          1 => 'prive/objets/infos/objet.html',
+          2 => 'prive/squelettes/contenu/objet.html',
+        ),
+        'explicites' => 
+        array (
+          0 => 'action/supprimer_objet.php',
+        ),
+      ),
+      'saisies' => 
+      array (
+        0 => 'objets',
+      ),
+      'autorisations' => 
+      array (
+        'objet_creer' => '',
+        'objet_voir' => '',
+        'objet_modifier' => '',
+        'objet_supprimer' => '',
+        'associerobjet' => '',
+      ),
+      'boutons' => 
+      array (
+        0 => 'menu_edition',
+        1 => 'outils_rapides',
+      ),
+    ),
   ),
   'images' => 
   array (
@@ -259,6 +435,9 @@ $data = array (
     'objets' => 
     array (
       0 => 
+      array (
+      ),
+      1 => 
       array (
       ),
     ),
