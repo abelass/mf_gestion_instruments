@@ -38,6 +38,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_lifecycles' => 'Lifecycles',
 	'titre_lifecycles_rubrique' => 'Lifecycles de la rubrique',
 	'titre_logo_lifecycle' => 'Logo de ce lifecycle',
+	'texte_statut_being_repaired' => 'BEING REPAIRED',
+	'texte_statut_collected' => 'COLLECTED',
+	'texte_statut_donated' => 'DONATED',
+	'texte_statut_given_away' => 'GIVEN AWAY',
+	'texte_statut_on_the_road' => 'ON THE ROAD',
+	'texte_statut_ready' => 'READY',
+	'texte_statut_to_check' => 'TO CHECK',
+	'texte_statut_sold' => 'SOLD',
+	'texte_statut_used_for_pieces' => 'USED FOR PIECES',
+	'texte_statut_used_to_repair' => 'USED TO REPAIR',
 );
 
 ?>
