@@ -1,6 +1,6 @@
 [(#SET{defaut_tri,#ARRAY{
-	statut,1, 
 	date,-1, 
+	statut,1, 
 	id_lifecycle,1,
 	points,-1
 }})]<B_liste_lifecycles>
@@ -18,7 +18,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<BOUCLE_liste_lifecycles(LIFECYCLES){id_instrument?}{id_contact?}{id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,num statut},#GET{defaut_tri}}{par statut}{pagination #ENV{nb,10}}>
+	<BOUCLE_liste_lifecycles(LIFECYCLES){id_instrument?}{id_contact?}{id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,date},#GET{defaut_tri}}{par date}{pagination #ENV{nb,10}}>
 		<tr class='[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]'>
 			<td class='picto'>[(#CHEMIN_IMAGE{lifecycle-16.png}|balise_img)]</td>
 			<td class='statut'>[(#STATUT|puce_statut{lifecycle,#ID_LIFECYCLE})]</td> 

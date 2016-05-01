@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'champ_id_contact_label' => 'Id_Contact',
 	'champ_id_instrument_label' => 'id_Instrument',
 	'champ_nombre_label' => 'Nombre',
+	'champ_statut_label' => 'Statut',
 
 	// I
 	'icone_creer_lifecycle' => 'Créer un lifecycle',

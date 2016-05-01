@@ -60,6 +60,10 @@ function formulaires_editer_lifecycle_identifier_dist($id_lifecycle='new', $reto
  */
 function formulaires_editer_lifecycle_charger_dist($id_lifecycle='new', $retour='', $lier_trad=0, $config_fonc='', $row=array(), $hidden=''){
 	$valeurs = formulaires_editer_objet_charger('lifecycle',$id_lifecycle,'',$lier_trad,$retour,$config_fonc,$row,$hidden);
+	if ($id_instrument = _request('id_instrument')) {
+		$valeurs['id_instrument'] = $id_instrument;
+	}
+	$valeurs['_hidden'] .= '<input type="hidden" name="statut" value="TO CHECK" />';
 	return $valeurs;
 }
 

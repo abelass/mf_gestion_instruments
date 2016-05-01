@@ -1,14 +1,25 @@
 <BOUCLE_lifecycle(LIFECYCLES){id_lifecycle}{statut?}>
 
 [<div class="champ contenu_id_instrument[ (#ID_INSTRUMENT*|strlen|?{'',vide})]">
-	<label><:lifecycle:champ_id_instrument_label:> : </label>
-	<span dir='#LANG_DIR' class='#EDIT{id_instrument} id_instrument'>(#ID_INSTRUMENT)</span>
+	<label><:instrument:titre_instrument:>  : </label>
+	<span dir='#LANG_DIR' class='#EDIT{id_instrument} id_instrument'>
+		<a href="#URL_ECRIRE{instrument,id_instrument=#ID_INSTRUMENT}">
+			(#INFO_TITRE{instrument,#ID_INSTRUMENT})
+		</a>
+	</span>
 </div>]
 
-[<div class="champ contenu_id_contact[ (#ID_CONTACT*|strlen|?{'',vide})]">
-	<label><:lifecycle:champ_id_contact_label:> : </label>
-	<span dir='#LANG_DIR' class='#EDIT{id_contact} id_contact'>(#ID_CONTACT)</span>
-</div>]
+<div class="champ contenu_id_contact[ (#ID_CONTACT*|strlen|?{'',vide})]">
+	<label><:contacts:contact:> : </label>
+
+		<BOUCLE_contact(CONTACTS){id_contact}>
+		<a href="#URL_ECRIRE{contact,id_contact=#ID_CONTACT}">
+		#PRENOM #NOM
+		</a>
+		</BOUCLE_contact>
+
+	</span>
+</div>
 
 [<div class="champ contenu_descriptif[ (#DESCRIPTIF*|strlen|?{'',vide})]">
 	<label><:lifecycle:champ_descriptif_label:> : </label>

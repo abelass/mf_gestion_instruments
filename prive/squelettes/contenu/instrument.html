@@ -24,7 +24,15 @@
 <INCLURE{fond=prive/objets/contenu/instrument,id=#ID_INSTRUMENT,id_instrument=#ID_INSTRUMENT,virtuel=oui,ajax=wysiwyg,wysiwyg=1}>
 </div>
 
+<INCLURE{fond=prive/objets/liste/lifecycles, par=date, id_instrument, env, ajax, sinon=<:lifecycle:info_aucun_lifecycle:>}>
+
+[(#AUTORISER{creer,lifecycle})
+	[(#URL_ECRIRE{lifecycle_edit,new=oui&id_instrument=#ID_INSTRUMENT}|icone_verticale{<:lifecycle:icone_creer_lifecycle:>,lifecycle,new,right})]
+]
+
+
 <div class="nettoyeur"></div>
+
 
 [(#AUTORISER{modifier,instrument,#ID_INSTRUMENT})
 	[(#ID_INSTRUMENT|afficher_qui_edite{instrument}|non)
