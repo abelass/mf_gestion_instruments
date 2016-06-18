@@ -1,28 +1,18 @@
-<BOUCLE_instrument(INSTRUMENTS){id_instrument=#ENV{id}}{statut?}>
+<BOUCLE_instrument(INSTRUMENTS){id_instrument=#ENV{id}}>
 <div class='infos'>
 [(#SET{texte_objet,<:instrument:titre_instrument:>})]
 <div class='numero'><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_INSTRUMENT</p></div>
 
-[(#FORMULAIRE_INSTITUER_OBJET{instruments,#ID_INSTRUMENT})]
+
 
 [(#REM)
 
 	Bouton voir en ligne
 
 ]
-<BOUCLE_publie(INSTRUMENTS){id_instrument}>
 	[(#VAL{redirect}
 		|generer_url_action{type=instruments&id=#ID_INSTRUMENT}
 		|parametre_url{var_mode,calcul}
 		|icone_horizontale{<:icone_voir_en_ligne:>,racine})]
-</BOUCLE_publie>
-	[(#AUTORISER{previsualiser,instruments,#ID_INSTRUMENT,'',#ARRAY{statut,#STATUT}})
-		[(#VAL{redirect}
-			|generer_url_action{type=instruments&id=#ID_INSTRUMENT}
-			|parametre_url{var_mode,preview}
-			|icone_horizontale{<:previsualiser:>,preview})]
-	]
-<//B_publie>
-
 </div>
 </BOUCLE_instrument>
