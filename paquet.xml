@@ -17,7 +17,7 @@
 	
 
 	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
-	<auteur>Orlando</auteur>
+	<auteur>Rainer Müller</auteur>
 
 	<licence>GNU/GPL</licence>
 

@@ -4,7 +4,7 @@
  *
  * @plugin     Gestion des instruments de Music Fund 
  * @copyright  2016
- * @author     Orlando
+ * @author     Rainer Müller
  * @licence    GNU/GPL
  * @package    SPIP\Mf_gestion_instruments\Action
  */
