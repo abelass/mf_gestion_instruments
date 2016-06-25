@@ -10,10 +10,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'ajouter_lien_instrument' => 'Ajouter cet instrument',
 
 	// C
+	'champ_cle_label' => 'Clé',
 	'champ_date_creation_label' => 'Date création',
 	'champ_descriptif_label' => 'Descriptif',
 	'champ_mf_id_label' => 'mf_id',
 	'champ_nombre_label' => 'Nombre',
+	'champ_taille_label' => 'Taille',
 	'champ_titre_label' => 'Titre',
 
 	// I

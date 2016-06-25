@@ -52,7 +52,7 @@ function mf_gestion_instruments_upgrade($nom_meta_base_version, $version_cible) 
 	$maj['create'] = array(array('maj_tables', array('spip_instruments', 'spip_lifecycles')));
 	$maj['1.1.0'] = array(
 		array('maj_tables', array('spip_instruments')),
-		(array('sql_alter','TABLE spip_instruments DROP COLUMN statut'))
+		array('sql_alter','TABLE spip_instruments DROP COLUMN statut')
 	);
 
 	include_spip('base/upgrade');

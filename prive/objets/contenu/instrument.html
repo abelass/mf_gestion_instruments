@@ -1,4 +1,4 @@
-<BOUCLE_instrument(INSTRUMENTS){id_instrument}{statut?}>
+<BOUCLE_instrument(INSTRUMENTS){id_instrument}>
 
 [<div class="champ contenu_titre[ (#TITRE*|strlen|?{'',vide})]">
 	<label><:instrument:champ_titre_label:> : </label>
@@ -10,14 +10,14 @@
 	<span dir='#LANG_DIR' class='#EDIT{mf_id} mf_id'>(#MF_ID)</span>
 </div>]
 
-[<div class="champ contenu_key[ (#KEY*|strlen|?{'',vide})]">
-	<label><:instrument:champ_key_label:> : </label>
-	<span dir='#LANG_DIR' class='#EDIT{key} key'>(#KEY)</span>
+[<div class="champ contenu_cle[ (#CLE*|strlen|?{'',vide})]">
+	<label><:instrument:champ_cle_label:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{cle} cle'>(#CLE)</span>
 </div>]
 
-[<div class="champ contenu_size[ (#SIZE*|strlen|?{'',vide})]">
-	<label><:instrument:champ_size_label:> : </label>
-	<span dir='#LANG_DIR' class='#EDIT{size} size'>(#SIZE)</span>
+[<div class="champ contenu_size[ (#TAILLE*|strlen|?{'',vide})]">
+	<label><:instrument:champ_taille_label:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{taille} taille'>(#TAILLE)</span>
 </div>]
 
 [<div class="champ contenu_date_creation[ (#DATE_CREATION*|strlen|?{'',vide})]">

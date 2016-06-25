@@ -44,8 +44,8 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			"id_instrument" => "bigint(21) NOT NULL",
 			"titre" => "varchar(255) NOT NULL DEFAULT ''",
 			"mf_id" => "varchar(50) NOT NULL DEFAULT ''",
-			"key" => "varchar(50) NOT NULL DEFAULT ''",
-			"size" => "varchar(255) NOT NULL DEFAULT ''",
+			"cle" => "varchar(50) NOT NULL DEFAULT ''",
+			"taille" => "varchar(255) NOT NULL DEFAULT ''",
 			"date_creation" => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
 			"descriptif" => "mediumtext NOT NULL DEFAULT ''",
 			"nombre" => "int(11) NOT NULL DEFAULT 1",
@@ -63,22 +63,22 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'date_creation',
 			'descriptif',
 			'nombre',
-			'key',
-			'size' 
+			'cle',
+			'taille' 
 		),
 		'champs_versionnes' => array (
 			'titre',
 			'mf_id',
 			'descriptif',
 			'nombre',
-			'key',
-			'size'
+			'cle',
+			'taille'
 		),
 		'rechercher_champs' => array (
 			"titre" => 8,
 			"mf_id" => 8,
 			"descriptif" => 5,
-			'key' => 5
+			'cle' => 5
 		),
 		'tables_jointures' => array () 
 	)
