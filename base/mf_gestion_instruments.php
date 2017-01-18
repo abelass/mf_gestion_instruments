@@ -179,7 +179,7 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'TO CHECK' => 'puce-to-check-8.png',
 			'USED FOR PIECES' => 'puce-used-for-pieces-8.png',
 			'USED TO REPAIR' => 'puce-used-to-repair-8.png',
-			'INVENTORIED' => 'puce-used-to-inventoried-8.png',
+			'INVENTORIED' => 'puce-inventoried-8.png',
 			'poubelle' => 'puce-reservation-poubelle-16.png'
 		),
 		'texte_changer_statut' => 'lifecycle:texte_changer_statut_lifecycle'
