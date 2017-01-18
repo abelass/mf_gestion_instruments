@@ -43,6 +43,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_statut_collected' => 'COLLECTED',
 	'texte_statut_donated' => 'DONATED',
 	'texte_statut_given_away' => 'GIVEN AWAY',
+	'texte_statut_inventoried' => 'INVENTORIED',
 	'texte_statut_on_the_road' => 'ON THE ROAD',
 	'texte_statut_ready' => 'READY',
 	'texte_statut_to_check' => 'TO CHECK',

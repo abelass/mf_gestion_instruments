@@ -2,7 +2,7 @@
 /**
  * Déclarations relatives à la base de données
  *
- * @plugin     Gestion des instruments de Music Fund 
+ * @plugin     Gestion des instruments de Music Fund
  * @copyright  2016
  * @author     Rainer Müller
  * @licence    GNU/GPL
@@ -15,7 +15,7 @@ if (! defined ( '_ECRIRE_INC_VERSION' ))
  * Déclaration des alias de tables et filtres automatiques de champs
  *
  * @pipeline declarer_tables_interfaces
- * 
+ *
  * @param array $interfaces
  *        	Déclarations d'interface pour le compilateur
  * @return array Déclarations d'interface pour le compilateur
@@ -23,7 +23,7 @@ if (! defined ( '_ECRIRE_INC_VERSION' ))
 function mf_gestion_instruments_declarer_tables_interfaces($interfaces) {
 	$interfaces['table_des_tables']['instruments'] = 'instruments';
 	$interfaces['table_des_tables']['lifecycles'] = 'lifecycles';
-	
+
 	return $interfaces;
 }
 
@@ -31,7 +31,7 @@ function mf_gestion_instruments_declarer_tables_interfaces($interfaces) {
  * Déclaration des objets éditoriaux
  *
  * @pipeline declarer_tables_objets_sql
- * 
+ *
  * @param array $tables
  *        	Description des tables
  * @return array Description complétée des tables
@@ -50,10 +50,10 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			"descriptif" => "mediumtext NOT NULL DEFAULT ''",
 			"nombre" => "int(11) NOT NULL DEFAULT 1",
 			"date_creation" => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
-			"maj" => "TIMESTAMP" 
+			"maj" => "TIMESTAMP"
 		),
 		'key' => array (
-			"PRIMARY KEY" => "id_instrument" 
+			"PRIMARY KEY" => "id_instrument"
 		),
 		'titre' => "titre AS titre, '' AS lang",
 		'date' => "date_creation",
@@ -64,7 +64,7 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'descriptif',
 			'nombre',
 			'cle',
-			'taille' 
+			'taille'
 		),
 		'champs_versionnes' => array (
 			'titre',
@@ -80,10 +80,10 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			"descriptif" => 5,
 			'cle' => 5
 		),
-		'tables_jointures' => array () 
+		'tables_jointures' => array ()
 	)
 	;
-	
+
 	$tables['spip_lifecycles'] = array (
 		'type' => 'lifecycle',
 		'principale' => "oui",
@@ -96,11 +96,11 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			"date" => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
 			"date" => "datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
 			"statut" => "varchar(20)  DEFAULT '0' NOT NULL",
-			"maj" => "TIMESTAMP" 
+			"maj" => "TIMESTAMP"
 		),
 		'key' => array (
 			"PRIMARY KEY" => "id_lifecycle",
-			"KEY statut" => "statut" 
+			"KEY statut" => "statut"
 		),
 		'titre' => "statut AS titre, '' AS lang",
 		'date' => "date",
@@ -109,18 +109,18 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'id_contact',
 			'descriptif',
 			'nombre',
-			'date' 
+			'date'
 		),
 		'champs_versionnes' => array (
 			'id_instrument',
 			'id_contact',
 			'descriptif',
 			'nombre',
-			'date' 
+			'date'
 		),
 		'rechercher_champs' => array (
 			"descriptif" => 5,
-			"date" => 8 
+			"date" => 8
 		),
 		'tables_jointures' => array ('spip_instruments'),
 		'statut_textes_instituer' => array (
@@ -133,7 +133,8 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'SOLD' => 'lifecycle:texte_statut_sold',
 			'TO CHECK' => 'lifecycle:texte_statut_to_check',
 			'USED FOR PIECES' => 'lifecycle:texte_statut_used_for_pieces',
-			'USED TO REPAIR' => 'lifecycle:texte_statut_used_to_repair' 
+			'USED TO REPAIR' => 'lifecycle:texte_statut_used_to_repair',
+			'INVENTORIED' => 'lifecycle:texte_statut_inventoried',
 		),
 		'statut' => array (
 			array (
@@ -163,9 +164,9 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 				'post_date' => 'date',
 				'exception' => array (
 					'statut',
-					'tout' 
-				) 
-			) 
+					'tout'
+				)
+			)
 		),
 		'statut_images' => array (
 			'BEING REPAIRED' => 'puce-being-repaired-8.png',
@@ -178,12 +179,13 @@ function mf_gestion_instruments_declarer_tables_objets_sql($tables) {
 			'TO CHECK' => 'puce-to-check-8.png',
 			'USED FOR PIECES' => 'puce-used-for-pieces-8.png',
 			'USED TO REPAIR' => 'puce-used-to-repair-8.png',
-			'poubelle' => 'puce-reservation-poubelle-16.png' 
+			'INVENTORIED' => 'puce-used-to-inventoried-8.png',
+			'poubelle' => 'puce-reservation-poubelle-16.png'
 		),
-		'texte_changer_statut' => 'lifecycle:texte_changer_statut_lifecycle' 
+		'texte_changer_statut' => 'lifecycle:texte_changer_statut_lifecycle'
 	)
 	;
-	
+
 	return $tables;
 }
 
