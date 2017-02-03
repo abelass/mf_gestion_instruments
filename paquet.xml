@@ -51,7 +51,6 @@
 	<pipeline nom="declarer_tables_objets_sql" inclure="base/mf_gestion_instruments.php" />
 	<pipeline nom="declarer_tables_interfaces" inclure="base/mf_gestion_instruments.php" />
 	<pipeline nom="optimiser_base_disparus" inclure="mf_gestion_instruments_pipelines.php" />
-  <pipeline nom="declarer_tables_principales" inclure="base/mf_gestion_instruments.php" />
 
 	<menu nom="instruments" titre="instrument:titre_instruments" parent="menu_edition" icone="images/instrument-16.png" action="instruments" />
 	<menu nom="instrument_creer" titre="instrument:icone_creer_instrument" parent="outils_rapides" icone="images/instrument-new-16.png" action="instrument_edit" parametres="new=oui" />
